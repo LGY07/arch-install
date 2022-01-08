@@ -3,12 +3,12 @@
 
 Interactive archlinux install script
 
-Please run it on ArchLive
+Please run it on ArchLive,can only be installed on UEFI
 
 Instructions:
 ```
-wget [Download link for the latest version]
-./install.sh
+curl -O [Download link for the latest version]
+bash ./install.sh
 ```
 
 ## If the link below works, you can use the installation image below.
