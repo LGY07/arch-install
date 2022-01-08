@@ -12,7 +12,7 @@ clear
 
 #Select partition
 echo -e "\033[36mMount point for /\033[0m"
-lsblk
+fdisk -l
 read -p "/dev/" root
 echo -e "\033[36mMount point for /boot\033[0m"
 read -p "/dev/" boot
@@ -103,7 +103,7 @@ echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch'>>/etc/pac
 clear
 
 #arch-install-script
-pkg=base base devel linux-firmware dhcpcd grub efibootmgr os-prober ntfs-3g git $kernel $de $editor $aur
+pkg="base base-devel linux-firmware dhcpcd grub efibootmgr os-prober ntfs-3g git $kernel $de $editor $aur"
 pacstrap /mnt $pkg
 genfstab -U /mnt/etc/fstab
 echo "en_US.UTF-8 UTF-8">>/mnt/etc/locale.gen
