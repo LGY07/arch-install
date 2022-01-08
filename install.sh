@@ -124,7 +124,7 @@ arch-chroot /mnt systemctl enable NetworkManager
 arch-chroot /mnt systemctl enable $dm
 clear
 arch-chroot /mnt os-prober
-target="$(uname -i)-efi"
+target="$(uname -m)-efi"
 arch-chroot /mnt grub-install --target=$target --efi-directory=/boot --bootloader-id=ArchLinux
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 clear
