@@ -3,12 +3,12 @@
 
 交互式Arch Linux安装脚本
 
-请在ArchLive运行
+请在ArchLive运行,只能在UEFI安装
 
 使用方法:
 ```
-wget [最新版本的下载链接]
-./install.sh
+curl -O [最新版本的下载链接]
+bash ./install.sh
 ```
 
 ## 如果下面的链接可以使用，你可以用下面的安装镜像
