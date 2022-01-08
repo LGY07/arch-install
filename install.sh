@@ -20,7 +20,7 @@ root=/dev/$root
 boot=/dev/$boot
 mkfs.btrfs $root
 mkfs.fat -F32 $boot
-mount $root /mount
+mount $root /mnt
 mkdir /mnt/boot
 mount $boot /mnt/boot
 clear
@@ -78,7 +78,7 @@ elif [ editor == 2 ]
 then editor=nano vi
 elif [ editor == 3 ]
 then editor=nano vim vi
-else editor=vim vi nano
+else editor=vim vi
 fi
 clear
 
