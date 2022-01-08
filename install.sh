@@ -58,10 +58,10 @@ read -p "Desktop Environment:" de
 if [ de == 0 ]
 then de=networkmanager
 elif [ de == 2 ]
-then de=gnome gdm
+then de=gnome gdm & dm=gdm
 elif [ de == 3 ]
-then de=gnome plasma plasma-wayland-session kde-applications sddm
-else de=plasma plasma-wayland-session kde-applications sddm
+then de=gnome plasma plasma-wayland-session kde-applications sddm & dm=sddm
+else de=plasma plasma-wayland-session kde-applications sddm & dm=sddm
 fi
 clear
 
@@ -110,21 +110,21 @@ echo "en_US.UTF-8 UTF-8">>/mnt/etc/locale.gen
 echo "zh_CN.UTF-8 UTF-8">>/mnt/etc/locale.gen
 echo LANG="en_US.UTF-8"> /mnt/etc/locale.conf
 mkdir /mnt/boot/grub
-read -p "Set username: " username
-echo "$username-PC">/mnt/etc/hostname
-echo "$username ALL=(ALL) ALL">>/mnt/etc/sudoers
-echo $username>/mnt/tpm/user
+read -p "Set username:" user
+echo "$user-PC">/mnt/etc/hostname
+echo "$user ALL=(ALL) ALL">>/mnt/etc/sudoers
 
 #chroot
-arch-chroot /mnt user=$(cat /tpm/user)
-arch-chroot /mnt rm -f /tpm/user
 arch-chroot /mnt echo "Set $user password"
 arch-chroot /mnt passwd $user
 arch-chroot /mnt echo "Set root passwd"
 arch-chroot /mnt passwd
+arch-chroot /mnt systemctl enable NetworkManager
+arch-chroot /mnt systemctl enable $dm
 clear
 arch-chroot /mnt os-prober
-arch-chroot /mnt grub-install --target=$(uname -i)-efi --efi-directory=/boot --bootloader-id=ArchLinux
+target="$(uname -i)-efi"
+arch-chroot /mnt grub-install --target=$target --efi-directory=/boot --bootloader-id=ArchLinux
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 clear
 
