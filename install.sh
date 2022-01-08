@@ -11,8 +11,8 @@ cfdisk
 clear
 
 #Select partition
-echo -e "\033[36mMount point for /\033[0m"
 fdisk -l
+echo -e "\033[36mMount point for /\033[0m"
 read -p "/dev/" root
 echo -e "\033[36mMount point for /boot\033[0m"
 read -p "/dev/" boot
@@ -110,7 +110,7 @@ echo "en_US.UTF-8 UTF-8">>/mnt/etc/locale.gen
 echo "zh_CN.UTF-8 UTF-8">>/mnt/etc/locale.gen
 echo LANG="en_US.UTF-8"> /mnt/etc/locale.conf
 mkdir /mnt/boot/grub
-read -p "Set username" username
+read -p "Set username: " username
 echo "$username-PC">/mnt/etc/hostname
 echo "$username ALL=(ALL) ALL">>/mnt/etc/sudoers
 echo $username>/mnt/tpm/user
