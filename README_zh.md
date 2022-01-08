@@ -1,5 +1,5 @@
 # arch-install
-[英语(en_US)]()
+[英语(en_US)](https://github.com/LGY07/arch-install/blob/main/README.md)
 
 交互式Arch Linux安装脚本
 
