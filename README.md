@@ -22,5 +22,5 @@ Burn the image, then boot it
 run:
 
 ```
-install
+bash install.sh
 ```
