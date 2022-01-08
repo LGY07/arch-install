@@ -12,3 +12,5 @@ bash ./install.sh
 ```
 
 你可能无法在ArchLive下载脚本，详情见[Releases](https://github.com/LGY07/arch-install/releases)，最好按照Releases中的方法来运行curl命令
+
+[博客上面有中文版的更完整的步骤](http://blog.lgy07.me/3/)
