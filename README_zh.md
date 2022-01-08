@@ -22,5 +22,5 @@ bash ./install.sh
 运行:
 
 ```
-install
+bash install.sh
 ```
