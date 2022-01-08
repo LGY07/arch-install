@@ -105,7 +105,7 @@ clear
 #arch-install-script
 pkg="base base-devel linux-firmware dhcpcd grub efibootmgr os-prober ntfs-3g git $kernel $de $editor $aur"
 pacstrap /mnt $pkg
-genfstab -U /mnt/etc/fstab
+genfstab -U /mnt>>/mnt/etc/fstab
 echo "en_US.UTF-8 UTF-8">>/mnt/etc/locale.gen
 echo "zh_CN.UTF-8 UTF-8">>/mnt/etc/locale.gen
 echo LANG="en_US.UTF-8"> /mnt/etc/locale.conf
@@ -115,6 +115,7 @@ echo "$user-PC">/mnt/etc/hostname
 echo "$user ALL=(ALL) ALL">>/mnt/etc/sudoers
 
 #chroot
+arch-chroot /mnt useradd $user
 arch-chroot /mnt echo "Set $user password"
 arch-chroot /mnt passwd $user
 arch-chroot /mnt echo "Set root passwd"
