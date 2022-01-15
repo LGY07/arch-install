@@ -1,6 +1,4 @@
 #!/bin/bash
-#From https://raw.githubusercontent.com/LGY07/arch-install/main/install.sh，Licensed under GPL3.0
-echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch'>/etc/pacman.d/mirrorlist
 title="ArchLinux inatall script"
 printf "\033c"
 if [ $(whoami) == "root" ]
