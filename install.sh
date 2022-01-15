@@ -1,4 +1,6 @@
 #!/bin/bash
+#From https://raw.githubusercontent.com/LGY07/arch-install/main/install.sh，Licensed under GPL3.0
+echo 'Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch'>/etc/pacman.d/mirrorlist
 title="ArchLinux inatall script"
 printf "\033c"
 if [ $(whoami) == "root" ]
@@ -32,17 +34,17 @@ echo  -e "2: linux-zen (\033[35mdefault\033[0m)"
 echo "4: linux-lts"
 echo -e "\033[36mFor example, enter 1 to select linux,Enter 3(1+2) to select linux & linux-zen\033[0m"
 read -p "Kernel: " Kernel
-if [ Kernel == 1 ]
+if [ Kernel -eq 1 ]
 then Kernel=linux
-elif [ Kernel == 3 ]
+elif [ Kernel -eq 3 ]
 then Kernel=linux linux-zen
-elif [ Kernel == 4 ]
+elif [ Kernel -eq 4 ]
 then Kernel=linux-lts
-elif [ Kernel == 5 ]
+elif [ Kernel -eq 5 ]
 then Kernel=linux linux-lts
-elif [ Kernel == 6 ]
+elif [ Kernel -eq 6 ]
 then Kernel=linux-zen linux-lts
-elif [ Kernel == 7 ]
+elif [ Kernel -eq 7 ]
 then Kernel=linux linux-zen linux-lts
 else Kernel=linux-zen
 fi
@@ -55,11 +57,11 @@ echo -e "1: KDE Plasma (\033[35mdefault\033[0m)"
 echo "2: GNOME"
 echo -e "\033[36mFor example, enter 1 to select KDE plasma, enter 3(1+2) to select KDE plasma & GNOME\033[0m"
 read -p "Desktop Environment:" de
-if [ de == 0 ]
+if [ de -eq 0 ]
 then de=networkmanager
-elif [ de == 2 ]
+elif [ de -eq 2 ]
 then de=gnome gdm & dm=gdm
-elif [ de == 3 ]
+elif [ de -eq 3 ]
 then de=gnome plasma plasma-wayland-session kde-applications sddm & dm=sddm
 else de=plasma plasma-wayland-session kde-applications sddm & dm=sddm
 fi
@@ -72,11 +74,11 @@ echo -e "1: Vim (\033[35mdefault\033[0m)"
 echo "2: Nano"
 echo -e "\033[36mFor example, enter 1 to select Vim, enter 3(1+2) to select Vim & Nano\033[0m"
 read -p "Text editor: " editor
-if [ editor == 0]
+if [ editor -eq 0]
 then editor=vi
-elif [ editor == 2 ]
+elif [ editor -eq 2 ]
 then editor=nano vi
-elif [ editor == 3 ]
+elif [ editor -eq 3 ]
 then editor=nano vim vi
 else editor=vim vi
 fi
@@ -89,11 +91,11 @@ echo -e "1: Yay (\033[35mdefault\033[0m)"
 echo "2: Yaourt"
 echo -e "\033[36mFor example, enter 1 to select KDE plasma, enter 3(1+2) to select Yay & Yaourt\033[0m"
 read -p "AUR helper: " aur
-if [ aur == 0 ]
+if [ aur -eq 0 ]
 then aur=pacman
-elif [ aur == 2 ]
+elif [ aur -eq 2 ]
 then aur=yaourt
-elif [ aur == 3 ]
+elif [ aur -eq 3 ]
 then aur=yay yaourt
 else aur=yay
 fi
